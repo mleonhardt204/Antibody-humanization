@@ -133,13 +133,12 @@ view.show()
 
 """##Structural Prediction of chimeric_anti_OKT3_scFv"""
 
-# Initialization process/ prepare environment
-
+# 1. Imports/ set-up
 import os
 import torch
-import torch.serialization # Include torch directly after restart
+import torch.serialization
 from igfold import IgFoldRunner
-import py3Dmol # For visualization
+from igfold.utils.visualize import show_pdb
 
 # Imports for model deserialization
 from transformers.models.bert.configuration_bert import BertConfig
@@ -148,11 +147,7 @@ from transformers.tokenization_utils import Trie
 from transformers.models.bert.tokenization_bert import BasicTokenizer
 from transformers.models.bert.tokenization_bert import WordpieceTokenizer
 
-# Core IgFold and visualization imports
-from igfold.utils.visualize import show_pdb
-from igfold import IgFoldRunner
-
-# 1. Setup/ configuration
+# 2. Configuration/ preparation
 
 # Define sequences
 SEQUENCES = {
@@ -160,97 +155,70 @@ SEQUENCES = {
     "L": "DIQMTQSPSSLSASVGDRVTITCKASQSVSANDVVAWYQQKPGKAPKLVIYWASTRESGVPSRFSGSGSGTDFTLTISSLQPEDFATYYCLQHFWSTPRTFGQGTKVEIK"
 }
 
-# Define output path and file name
+# Define output path/ file name
 ANTIBODY_NAME = "chimeric_anti-OKT3_scFv"
 PRED_DIR = "igfold_predictions"
 
-# Execution flags (set to FALSE as the environment could not support these dependencies)
+# Execution flags
 DO_REFINE = False
 DO_RENUM = False
 USE_OPENMM = False
 NUM_MODELS = 4
 
-# Create output directory/ file path (can be run safely multiple times)
+# Create output directory and file path
 if not os.path.exists(PRED_DIR):
     os.makedirs(PRED_DIR)
 pred_pdb_path = os.path.join(PRED_DIR, f"{ANTIBODY_NAME}.pdb")
 
-# 2. Folding execution
+# 3. Execution/ visualization
 
-if __name__ == "__main__":
-    # Create output directory/ file path
-    if not os.path.exists(PRED_DIR):
-        os.makedirs(PRED_DIR)
-    pred_pdb_path = os.path.join(PRED_DIR, f"{ANTIBODY_NAME}.pdb")
+# Load IgFold models using patched safe_globals context manager
+with torch.serialization.safe_globals({BertConfig, BertTokenizer, Trie, BasicTokenizer, WordpieceTokenizer}):
+    print(f"Initializing IgFoldRunner with {NUM_MODELS} models...")
+    igfold = IgFoldRunner(num_models=NUM_MODELS)
+    print("Successfully loaded IgFold and AntiBERTy models.")
 
-    # Load IgFold models using the patched safe_globals context manager
-    with torch.serialization.safe_globals({BertConfig, BertTokenizer, Trie, BasicTokenizer, WordpieceTokenizer}):
-        print(f"Initializing IgFoldRunner with {NUM_MODELS} models...")
-        igfold = IgFoldRunner(num_models=NUM_MODELS)
-        print("Successfully loaded IgFold and AntiBERTy models.")
+# Perform folding prediction
+print(f"\nFolding sequences for {ANTIBODY_NAME}...")
 
-    # Perform folding prediction
-    print(f"\nFolding sequences for {ANTIBODY_NAME}...")
+# Assign output to 'pred' for later analysis cells
+pred = igfold.fold(
+    pred_pdb_path,
+    sequences=SEQUENCES,
+    do_refine=DO_REFINE,
+    use_openmm=USE_OPENMM,
+    do_renum=DO_RENUM,
+)
 
-    igfold.fold(
-        pred_pdb_path,
-        sequences=SEQUENCES,
-        do_refine=DO_REFINE,
-        use_openmm=USE_OPENMM,
-        do_renum=DO_RENUM,
-    )
+print(f"Structure successfully saved to {pred_pdb_path}")
 
-    print(f"Structure successfully saved to {pred_pdb_path}")
-
-    # Display final structure
-    show_pdb(
-        pred_pdb_path,
-        len(SEQUENCES),
-        bb_sticks=False,
-        sc_sticks=True,
-        color="rainbow"
-    )
-
-"""##Visualization of chimeric_anti_OKT3_scFv"""
-
-import os
-import py3Dmol
-
-ANTIBODY_NAME = "chimeric_anti-OKT3_scFv"
-PRED_DIR = "igfold_predictions"
-pdb_file = os.path.join(PRED_DIR, f"{ANTIBODY_NAME}.pdb")
-
-# read the PDB file contents into a string
-with open(pdb_file, 'r') as f:
-    pdb_data = f.read()
-
-# create the view
-view = py3Dmol.view(width=800, height=600)
-
-# add model data directly
-view.addModel(pdb_data, 'pdb')
-
-# apply styling and display
-view.setStyle({'cartoon': {'color': 'spectrum'}})
-view.zoomTo()
-view.show()
+# Display final structure
+print("\nRendering 3D Structure:")
+show_pdb(
+    pred_pdb_path,
+    len(SEQUENCES),
+    bb_sticks=False,
+    sc_sticks=True,
+    color="rainbow"
+)
 
 # Define the prediction directory name (IgFold default)
-pred_dir = "igfold_predictions"
-
+# pred_dir = "igfold_predictions" <-- Already defined in the main block
 # Define the name of your sequence (as used in the prediction step)
-name = "chimeric_anti-OKT3_scFv"
+# name = "chimeric_anti-OKT3_scFv" <-- Already defined as ANTIBODY_NAME in the main block
 
-#@title Plot per-residue predicted RMSD
+prmsd_fig_file = os.path.join(PRED_DIR, f"{ANTIBODY_NAME}_prmsd.png")
 
-prmsd_fig_file = os.path.join(pred_dir, f"{name}_prmsd.png")
-plot_prmsd(sequences, pred.prmsd.cpu(), prmsd_fig_file, shade_cdr=do_renum, pdb_file=pred_pdb)
+# CRITICAL: Use ANTIBODY_NAME and PRED_DIR from the main script
+plot_prmsd(SEQUENCES, pred.prmsd.cpu(), prmsd_fig_file, shade_cdr=DO_RENUM, pdb_file=pred_pdb_path)
+print(f"Predicted RMSD plot saved to {prmsd_fig_file}")
 
 #@title Show predicted structure with predicted RMSD
 
 #@markdown Structure is colored from low (blue) to high (red) pRMSD.
 
-show_pdb(pred_pdb, len(sequences), bb_sticks=False, sc_sticks=True, color="b")
+# FIX: Change 'pred_pdb' to 'pred_pdb_path' to match the main script
+show_pdb(pred_pdb_path, len(SEQUENCES), bb_sticks=False, sc_sticks=True, color="b")
 
 #@title Download results
 
