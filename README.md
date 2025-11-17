@@ -7,6 +7,7 @@
 ### o	Manual restart  click on RESTART
 ### o	Run script in cell 1 (reload variables into fresh memory session)
 ### o	Run script in cell 3
+### o	Run script in cell 4
 
 #### Files used: IgFold.ipynb (Colab notebook), igfold.py (Python script)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mleonhardt204/Antibody-humanization/blob/main/IgFold.ipynb)
