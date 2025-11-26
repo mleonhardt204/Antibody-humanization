@@ -1,5 +1,5 @@
 ### <ins>SOURCE DATA:  1SY6.cif</ins>
-### This cif Crystallographic Information File (cif) contains the cyrstal structure of murine "OKT3" Mab complexed with CD3.
+### <sub>This cif Crystallographic Information File (cif) contains the cyrstal structure of murine "OKT3" Mab complexed with CD3.</sub>
 
 ### <ins>SOURCE DATA: Murine_Fv_V_Domain_Clean.pdb </ins>
 ### This Protein Data Bank (pdb) file contains the atmoic coordinates of murine "OKT3" Fv complexed with CD3.
