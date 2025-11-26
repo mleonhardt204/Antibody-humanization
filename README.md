@@ -8,14 +8,14 @@
 ### Methodology: murine framework regions were replaced with human framework regions.
 ### <ins>Visualization of chimeric_Fv (using IgFold) </ins>
 #### To examine structure of chimeric_Fv.pdb:
-#### •	Option 1: examine pdb file directly
-#### •	Option 2: run IgFold script (pynb, py file):
-#### o	Run script in cell 1 (definitions and sequences)
-#### o	Run script in cell 2 (install dependencies)
-#### o	Manual restart  click on RESTART
-#### o	Run script in cell 1 (reload variables into fresh memory session)
-#### o	Run script in cell 3
-#### o	Run script in cell 4
+#### > •	Option 1: examine pdb file directly
+#### > •	Option 2: run IgFold script (pynb, py file):
+#### >>> o	Run script in cell 1 (definitions and sequences)
+#### >>> o	Run script in cell 2 (install dependencies)
+#### >>> o	Manual restart  click on RESTART
+#### >>> o	Run script in cell 1 (reload variables into fresh memory session)
+#### >>> o	Run script in cell 3
+#### >>> o	Run script in cell 4
 
 #### Files used: IgFold.ipynb (Colab notebook), igfold.py (Python script)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mleonhardt204/Antibody-humanization/blob/main/IgFold.ipynb)
