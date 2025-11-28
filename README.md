@@ -1,8 +1,8 @@
 ### <ins>Antibody Humanization</ins>
 ### <sub>This project focuses on the humanization of the murine monoclonal “OKT3” antibody (MAb).
-### <sub> * 1.	CDR Grafting/ chimerization: CDRs from original murine Mab were grafted onto human immunoglobulin frameworks. Sequence: AAA</sub> 
-### <sub> * 2.	structural optimization: the chimeric Fv molecule underwent analysis of structural integrity.  Key framework residues were mutated back to the original murine amino acids to ensure preservation of CDR geometry and structural fidelity.</sub>
-### <sub> * 3.	validation: AAA was validated through computational structural alignment (RMSD analysis) to confirm high structural fidelity and retention of the murine binding interface.</sub>
+### <sub>   1.	CDR Grafting/ chimerization: CDRs from original murine Mab were grafted onto human immunoglobulin frameworks. Sequence: AAA</sub> 
+### <sub>   2.	structural optimization: the chimeric Fv molecule underwent analysis of structural integrity.  Key framework residues were mutated back to the original murine amino acids to ensure preservation of CDR geometry and structural fidelity.</sub>
+### <sub>   3.	validation: AAA was validated through computational structural alignment (RMSD analysis) to confirm high structural fidelity and retention of the murine binding interface.</sub>
 
 ### <ins>SOURCE DATA:  1SY6.cif</ins>
 ### <sub>This cif Crystallographic Information File (cif) contains the cyrstal structure of murine "OKT3" Mab complexed with CD3.</sub>
