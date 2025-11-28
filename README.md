@@ -1,16 +1,13 @@
 ### <ins>Antibody Humanization</ins>
+
 ### <sub>This project focuses on the humanization of the murine monoclonal “OKT3” antibody (MAb).
-### <sub>   1.	CDR Grafting/ chimerization: CDRs from original murine Mab were grafted onto human immunoglobulin frameworks. Sequence: AAA</sub> 
-### <sub>   2.	structural optimization: the chimeric Fv molecule underwent analysis of structural integrity.  Key framework residues were mutated back to the original murine amino acids to ensure preservation of CDR geometry and structural fidelity.</sub>
-### <sub>   3.	validation: AAA was validated through computational structural alignment (RMSD analysis) to confirm high structural fidelity and retention of the murine binding interface.</sub>
-
 ### <ins>SOURCE DATA:  1SY6.cif</ins>
-### <sub>This cif Crystallographic Information File (cif) contains the cyrstal structure of murine "OKT3" Mab complexed with CD3.</sub>
-
+### <sub>This cif Crystallographic Information File (cif) contains the cyrstal structure of murine "OKT3" MAb complexed with CD3.</sub>
 ### <ins>SOURCE DATA: Murine_Fv_V_Domain_Clean.pdb </ins>
-### <sub>This Protein Data Bank (pdb) file contains the atmoic coordinates of murine "OKT3" Fv complexed with CD3.</sub>
+### <sub>This Protein Data Bank (pdb) file contains the atomic coordinates for murine "OKT3" Fv complexed with CD3.</sub>
 
-### <ins>Chimeric "OKT3" Fv: </ins>
+### <sub>   1.	CDR Grafting/ chimerization: CDRs from original murine Mab were grafted onto human immunoglobulin frameworks.  
+
 ### Methodology: murine framework regions were replaced with human framework regions.
 ### <ins>Visualization of chimeric_Fv (using IgFold) </ins>
 #### To examine structure of chimeric_Fv.pdb:
@@ -26,6 +23,14 @@
 #### Files used: IgFold.ipynb (Colab notebook), igfold.py (Python script)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mleonhardt204/Antibody-humanization/blob/main/IgFold.ipynb)
 ### <ins>Comparing structures (murine OKT3 Fab: CD3 complex to chimeric OKT3 Fv:CD3 complex)</ins>
+
+### <sub>   2.	structural optimization: the chimeric Fv molecule underwent analysis of structural integrity.  Key framework residues were mutated back to the original murine amino acids to ensure preservation of CDR geometry and structural fidelity. AAA was validated through computational structural alignment (RMSD analysis) to confirm high structural fidelity and retention of the murine binding interface.</sub></sub>
+
+
+
+
+
+
 
 ### <ins>Humanized Chimeric_Fv:</ins>
 ### <sub>Methodology: murine framework regions were replaced with human framework regions.  Framework residues were selectively mutated back to the murine counterpart in order to support CDR functionality/ structure.</sub>
