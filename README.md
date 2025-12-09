@@ -29,3 +29,12 @@
 #### •	critical stabilizing contacts (i.e. “Framework anchors”) scored for quality (using ChimeraX): the contact distance for critical anchors was assessed to ensure highly conserved interactions with CDRs required for correct positioning.  The larger the BSA, the more extensive (and stable) the non-covalent interactions. Desired optimal range: 1500Å2 to 2000 Å2. 
 
 ### <ins>Step 6</ins>: visualization of final construct:  Chimeric_Fv_complete_set.pdb
+#### • Option 1: examine Chimeric_Fv_complete_set.pdb file directly
+#### • Option 2: run Python script (Chimeric_Fv_Complete.py) within IgFold Colab notebook (Chimeric_Fv_Complete.ipynb) in the following order:
+#### [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mleonhardt204/Antibody-humanization/blob/main/Chimeric_Fv_Complete.ipynb)
+#### o Run script in cell 1 (definitions and sequences)
+#### o Run script in cell 2 (install dependencies)
+#### o Manual restart  click on RESTART
+#### o Run script in cell 1 (reload variables into fresh memory session)
+#### o Run script in cell 3
+#### o Run script in cell 4
