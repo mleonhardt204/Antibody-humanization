@@ -8,8 +8,7 @@
 ### <ins>Step 3</ins>: to get a visualization of chimeric_Fv: 
 #### • Option 1: examine chimeric_Fv.pdb file directly
 #### • Option 2: run Python script (igfold.py) within IgFold Colab notebook (IgFold.ipynb) in the following order:
-#### Files used: IgFold.ipynb (Colab notebook), igfold.py (Python script)
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mleonhardt204/Antibody-humanization/blob/main/IgFold.ipynb)
+#### [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mleonhardt204/Antibody-humanization/blob/main/IgFold.ipynb)
 #### o Run script in cell 1 (definitions and sequences)
 #### o Run script in cell 2 (install dependencies)
 #### o Manual restart  click on RESTART
@@ -30,43 +29,3 @@
 #### •	critical stabilizing contacts (i.e. “Framework anchors”) scored for quality (using ChimeraX): the contact distance for critical anchors was assessed to ensure highly conserved interactions with CDRs required for correct positioning.  The larger the BSA, the more extensive (and stable) the non-covalent interactions. Desired optimal range: 1500Å2 to 2000 Å2. 
 
 ### <ins>Step 6</ins>: visualization of final construct:  Chimeric_Fv_complete_set.pdb
-
-
-
-### <ins>Antibody Humanization</ins>
-
-### <sub>This project focuses on the humanization of the murine monoclonal “OKT3” antibody (MAb).
-### <ins>SOURCE DATA:  1SY6.cif</ins>
-### <sub>This cif Crystallographic Information File (cif) contains the cyrstal structure of murine "OKT3" MAb complexed with CD3.</sub>
-### <ins>SOURCE DATA: Murine_Fv_V_Domain_Clean.pdb </ins>
-### <sub>This Protein Data Bank (pdb) file contains the atomic coordinates for murine "OKT3" Fv complexed with CD3.</sub>
-
-##### <sub>   1.	CDR Grafting/ chimerization: CDRs from original murine Mab were grafted onto human immunoglobulin frameworks.  
-
-### Methodology: murine framework regions were replaced with human framework regions.
-### <ins>Visualization of chimeric_Fv (using IgFold) </ins>
-#### To examine structure of chimeric_Fv.pdb:
-####    •	Option 1: examine pdb file directly
-####    •	Option 2: run IgFold script (pynb, py file):
-####        o	Run script in cell 1 (definitions and sequences)
-####        o	Run script in cell 2 (install dependencies)
-####        o	Manual restart  click on RESTART
-####        o	Run script in cell 1 (reload variables into fresh memory session)
-####        o	Run script in cell 3
-####        o	Run script in cell 4
-
-
-
-### <ins>Comparing structures (murine OKT3 Fab: CD3 complex to chimeric OKT3 Fv:CD3 complex)</ins>
-
-### <sub>   2.	structural optimization: the chimeric Fv molecule underwent analysis of structural integrity.  Key framework residues were mutated back to the original murine amino acids to ensure preservation of CDR geometry and structural fidelity. AAA was validated through computational structural alignment (RMSD analysis) to confirm high structural fidelity and retention of the murine binding interface.</sub></sub>
-
-
-
-
-
-
-
-### <ins>Humanized Chimeric_Fv:</ins>
-### <sub>Methodology: murine framework regions were replaced with human framework regions.  Framework residues were selectively mutated back to the murine counterpart in order to support CDR functionality/ structure.</sub>
-### <sub>Reference file: Chimeric_Fv_complete_set.pdb</sub> 
