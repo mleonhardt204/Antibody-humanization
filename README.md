@@ -7,7 +7,8 @@
 ### <ins>Step 2</ins>: 
 #### Human framework regions were grafted on to the CDR regions of Murine_Fv_V_Domain_Clean.pdb.  Atomic coordinates of chimeric Fv are contained within: chimeric_Fv.pdb
 
-### <ins>Step 3</ins>: to get a visualization of chimeric_Fv: 
+### <ins>Step 3</ins>: 
+#### Visualization of chimeric_Fv: 
 #### • Option 1: examine chimeric_Fv.pdb file directly
 #### • Option 2: run Python script (igfold.py) within IgFold Colab notebook (IgFold.ipynb) in the following order:
 #### [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mleonhardt204/Antibody-humanization/blob/main/IgFold.ipynb)
